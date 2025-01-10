@@ -1,20 +1,39 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "serve": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "xmlbuilder",
+  "version": "11.0.1",
+  "keywords": [
+    "xml",
+    "xmlbuilder"
+  ],
+  "homepage": "http://github.com/oozcitak/xmlbuilder-js",
+  "description": "An XML builder for node.js",
+  "author": "Ozgur Ozcitak <oozcitak@gmail.com>",
+  "contributors": [],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/oozcitak/xmlbuilder-js.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "nodemon": "^3.0.1",
-    "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.6"
+  "bugs": {
+    "url": "http://github.com/oozcitak/xmlbuilder-js/issues"
+  },
+  "main": "./lib/index",
+  "typings": "./typings/index.d.ts",
+  "engines": {
+    "node": ">=4.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "coffeescript": "1.*",
+    "mocha": "*",
+    "coffee-coverage": "2.*",
+    "istanbul": "*",
+    "coveralls": "*",
+    "xpath": "*"
+  },
+  "scripts": {
+    "prepublishOnly": "coffee -co lib src",
+    "postpublish": "rm -rf lib",
+    "test": "mocha \"test/**/*.coffee\" && istanbul report text lcov"
   }
 }
